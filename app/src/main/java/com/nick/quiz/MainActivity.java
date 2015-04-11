@@ -26,22 +26,16 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         TextView textView = ((TextView) findViewById(R.id.question_text_view));
-        int currentIndex = 0;
 
 
 
-        class Question {
-           public  String[] questions = getResources().getStringArray(R.array.questions);
-           public Map<Integer, Boolean> map = new HashMap<Integer, Boolean>();
-            {
-                for (int i = 0; i < questions.length; i++) {
-                    if (i % 2 == 0)
-                        map.put(i, true);
-                    map.put(i, false);
-                }
-           }
-        }
-        textView.setText(new Question().questions[currentIndex]);
+            Question.questions = getResources().getStringArray(R.array.questions);
+
+
+
+
+        Question question = new Question();
+        textView.setText(Question.questions[question.currentIndex]);
 
 
         View.OnClickListener listenerAnswer = new View.OnClickListener() {
