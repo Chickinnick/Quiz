@@ -1,25 +1,28 @@
 package com.nick.quiz;
 
-import java.util.HashMap;
-import java.util.Map;
-
 class Question {
-    public int currentIndex = 0;
+    public int currentQuestion;
 
-    public static String[] questions;
+    private boolean answer;
 
-     public Map<Integer, Boolean> map = new HashMap<Integer, Boolean>();
-    {
-        for (int i = 0; i < questions.length; i++) {
-            if (i % 2 == 0)
-                map.put(i, true);
-            map.put(i, false);
-        }
+    Question(int currentIndex, boolean answer) {
+        this.currentQuestion = currentIndex;
+        this.answer = answer;
     }
 
-    void updateQuestion(){
-        currentIndex++;
+    public int getCurrentQuestion() {
+        return currentQuestion;
     }
 
+    public void setCurrentQuestion(int currentQuestion) {
+        this.currentQuestion = currentQuestion;
+    }
 
+    public boolean isAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(boolean answer) {
+        this.answer = answer;
+    }
 }

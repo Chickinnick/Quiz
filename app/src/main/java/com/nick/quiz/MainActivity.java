@@ -7,6 +7,7 @@ import android.renderscript.Sampler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Collection;
@@ -18,6 +19,26 @@ import java.util.Set;
 
 public class MainActivity extends Activity {
 
+    private int currentIndex;
+
+    private Button buttonNext;
+    private Button buttonPrew;
+
+    private Button buttonTrue;
+    private Button buttonFalse;
+
+    private TextView textView;
+
+
+    Question[] questions = new Question[]{
+            new Question(R.string.q1, true),
+            new Question(R.string.q2, true),
+            new Question(R.string.q3, true),
+            new Question(R.string.q4, true),
+            new Question(R.string.q5, true),
+            new Question(R.string.q6, true)
+
+    };
 
 
     @Override
@@ -25,33 +46,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView textView = ((TextView) findViewById(R.id.question_text_view));
+        buttonNext = ((Button) findViewById(R.id.btn_next));
+        buttonPrew = ((Button) findViewById(R.id.btn_prewiew));
 
+        buttonTrue = ((Button) findViewById(R.id.btn_true));
+        buttonFalse = ((Button) findViewById(R.id.btn_false));
 
-
-            Question.questions = getResources().getStringArray(R.array.questions);
-
-
-
-
-        Question question = new Question();
-        textView.setText(Question.questions[question.currentIndex]);
-
-
-        View.OnClickListener listenerAnswer = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean ans;
-                if(v == findViewById(R.id.btn_true)){
-                    ans = true;
-                }
-                if(v == findViewById(R.id.btn_false)){
-                    ans = false;
-                }
-
-
-
-            }
-        };
     }
+
+
+
 }
